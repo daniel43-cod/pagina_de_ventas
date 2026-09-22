@@ -51,7 +51,7 @@ function verDetalle(index) {
     let fila = document.getElementById(`detalle-${index}`);
 
     if (fila.style.display === "none") {
-        fila.style.display = "table-row";
+        fila.style.display = "";
     } else {
         fila.style.display = "none";
     }

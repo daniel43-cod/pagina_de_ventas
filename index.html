@@ -10,6 +10,8 @@
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
     <link rel="stylesheet" href="pwa.css">
     <script src="pwa.js" defer></script>
+    <link rel="stylesheet" href="responsive.css">
+    <script src="responsive.js" defer></script>
 </head>
 <body>
 
@@ -58,7 +60,7 @@
 
 <h2 id="totalVenta">Total: Q0.00</h2>
 
-<div style="display: flex; gap: 10px; margin-top: 1rem;">
+<div class="acciones-venta">
   <button onclick="guardarVenta()" style="flex: 1; padding: 11px; font-size: 15px;">Guardar venta</button>
   <button onclick="cancelarVenta()" style="padding: 11px; font-size: 15px; background: var(--gris-card); color: var(--rojo); border: 0.5px solid var(--rojo-borde);">Cancelar Venta o Modificación</button>
 </div>

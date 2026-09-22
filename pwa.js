@@ -30,6 +30,15 @@
     let ready = false;
     let failed = false;
     let pendingInstall;
+    const displayMode = window.matchMedia('(display-mode: standalone)');
+    let installed = false;
+    try { installed = localStorage.getItem('pwaInstalled') === 'true'; } catch {}
+    function updateInstallVisibility() {
+        install.hidden = installed || displayMode.matches || navigator.standalone === true;
+        if (install.hidden && help.open) help.close();
+    }
+    displayMode.addEventListener('change', updateInstallVisibility);
+    updateInstallVisibility();
     const supported = 'serviceWorker' in navigator && window.isSecureContext
         && ['http:', 'https:'].includes(location.protocol);
     function updateStatus() {
@@ -52,6 +61,10 @@
     window.addEventListener('beforeinstallprompt', event => {
         event.preventDefault();
         pendingInstall = event;
+        // El navegador vuelve a ofrecer instalación si se desinstaló la app.
+        installed = false;
+        try { localStorage.removeItem('pwaInstalled'); } catch {}
+        updateInstallVisibility();
         install.textContent = 'Instalar aplicación';
     });
     install.addEventListener('click', async () => {
@@ -72,7 +85,9 @@
     });
     window.addEventListener('appinstalled', () => {
         pendingInstall = null;
-        install.textContent = 'Aplicación instalada';
+        installed = true;
+        try { localStorage.setItem('pwaInstalled', 'true'); } catch {}
+        updateInstallVisibility();
     });
     updateStatus();
     if (supported) {

@@ -1,12 +1,12 @@
 // Incrementar VERSION al publicar cambios en cualquiera de los archivos cacheados.
-const VERSION = 'v3';
+const VERSION = 'v4';
 const CACHE_PREFIX = `san-antonio-${self.registration.scope}-`;
 const CACHE_NAME = CACHE_PREFIX + VERSION;
 const ASSETS = [
     'index.html', 'productos.html', 'categorias.html', 'historial.html',
     'ventas.js', 'productos.js', 'categorias.js', 'historial.js',
     'ventas.css', 'producto.css', 'categorias.css', 'historial.css',
-    'pwa.js', 'pwa.css', 'manifest.webmanifest',
+    'pwa.js', 'pwa.css', 'responsive.js', 'responsive.css', 'manifest.webmanifest',
     'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png',
     'vendor/jspdf.umd.min.js'
 ].map(path => new URL(path, self.registration.scope).href);

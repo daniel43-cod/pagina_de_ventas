@@ -1,0 +1,46 @@
+/* Reglas compartidas, cargadas después de los estilos de cada pantalla. */
+nav { flex-wrap: wrap; }
+nav a { text-align: center; }
+.contenedor, .formulario, .productos > *, .card-categoria span { min-width: 0; }
+.contenedor { overflow-wrap: anywhere; }
+button { max-width: 100%; white-space: normal; }
+input, select { min-width: 0; max-width: 100%; }
+.productos .card {
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--gris-borde);
+    border-radius: 12px;
+    background: white;
+}
+.productos .card img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; }
+.productos .acciones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.productos .acciones button { flex: 1 1 100px; }
+.acciones-venta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+.acciones-venta button { flex: 1 1 220px; justify-content: center; }
+.pwa-bar > span { min-width: 0; overflow-wrap: anywhere; }
+
+@media screen and (max-width: 760px) {
+    nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 0 8px; gap: 0; }
+    nav a { display: flex; align-items: center; justify-content: center; padding: 12px 4px; font-size: 13px; overflow-wrap: anywhere; }
+    .contenedor { width: 100%; margin: 20px auto; padding: 0 12px 24px; }
+    .formulario { padding: 14px; }
+    input[type="text"], input[type="number"], select { font-size: 16px; min-height: 44px; }
+    button { min-height: 44px; justify-content: center; }
+    .productos { grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); }
+    #listaProductosCategoria { grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); }
+    .card-categoria { flex-wrap: wrap; }
+    .card-categoria span { flex-basis: 100%; }
+    .card-categoria button { flex: 1; }
+    .contenedor table, .contenedor tbody { display: block; width: 100%; border: 0; background: transparent; overflow: visible; }
+    .contenedor thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+    .contenedor tbody > tr { display: block; margin: 12px 0; padding: 8px; border: 1px solid var(--gris-borde); border-radius: 12px; background: white; }
+    .contenedor td[data-label] { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: center; gap: 10px; padding: 10px 6px; min-width: 0; }
+    .contenedor td[data-label]::before { content: attr(data-label); color: var(--texto-muted); font-size: 12px; font-weight: 600; }
+    .contenedor td > * { min-width: 0; max-width: 100%; }
+    .contenedor td[colspan] { display: block; padding: 0; }
+    .contenedor td input { width: 100%; }
+}
+@media screen and (max-width: 360px) {
+    nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pwa-bar { padding: 8px 12px; }
+}
