@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Iniciar servidor PWA",
+            "type": "process",
+            "command": "node",
+            "args": ["${workspaceFolder}/server.cjs"],
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": { "regexp": "^$", "file": 1, "message": 2 },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Iniciando",
+                    "endsPattern": "^PWA lista:"
+                }
+            }
+        }
+    ]
+}

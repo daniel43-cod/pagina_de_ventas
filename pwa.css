@@ -1,0 +1,40 @@
+.pwa-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #e6f1fb;
+    color: #0c447c;
+    font-size: 13px;
+}
+.pwa-bar button {
+    width: auto;
+    margin: 0;
+    padding: 8px 12px;
+    background: #185fa5;
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.pwa-bar button[hidden] { display: none; }
+.pwa-help {
+    margin: auto;
+    width: min(92vw, 540px);
+    max-height: 85vh;
+    overflow: auto;
+    padding: 24px;
+    border: 0;
+    border-radius: 12px;
+    background: white;
+    color: #2c2c2a;
+    line-height: 1.6;
+}
+.pwa-help::backdrop { background: rgb(0 0 0 / 45%); }
+.pwa-help p, .pwa-help ul { margin: 12px 0; }
+.pwa-help ul { padding-left: 22px; }
+.pwa-help li { margin: 10px 0; }
+.pwa-help [hidden] { display: none; }
+@media print { .pwa-bar { display: none; } }
